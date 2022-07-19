@@ -1,0 +1,17 @@
+.HodyTrackInformation {
+    padding: 5% 10% 0;
+    background: rgb(55, 123, 157);
+    color: #fff;
+}
+.HodyTrackInformationB {
+    padding: 0 10% 5%;
+    margin-top: -35px;
+    background: rgb(55, 123, 157);
+    color: #fff;
+}
+.HodyTrackInformationC {
+    padding: 35px 10% 5%;
+    margin-top: -35px;
+    background: rgb(55, 123, 157);
+    color: #fff;
+}

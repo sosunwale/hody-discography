@@ -1,0 +1,57 @@
+/* This is the large glass BG Player style
+
+.single-track-details .plyr__controls  {
+    height: 120px;
+    padding: 50px;
+    background: radial-gradient(#2f2d32, #ffffff36);
+	color: rgb(255,255,255, 0.56);
+}
+*/
+.single-track-player .plyr__controls {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: row;
+    background: var(--wp--preset--color--accent) !important;
+    border-radius: 8px;
+    padding-left: 15px;
+}
+.single-track-player .plyr__progress__container, .single-track-player .plyr__volume /*.single-track-player .plyr__menu*/ {
+    display: none;
+}
+.single-track-player.plyr__control{
+    margin-left: auto !important;
+}
+.single-track-player.plyr {
+    min-width: 0;
+    border-radius: 50%;
+}
+.single-track-player.plyr__controls {
+    padding: 10px 10px !important;
+    position: relative;
+}
+.single-track-player.plyr__time {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 70px;
+    background: var(--wp--preset--color--separator);
+    color: #ffffff;
+    border-radius: 10%;
+}
+.single-track-player button.plyr__controls__item.plyr__control {
+    background: var(--wp--preset--color--foreground);
+    padding: 12px;
+    border-radius: 50%;
+}
+.single-track-player .plyr__controls__item.plyr__time--current.plyr__time {
+    color: white;
+    font-family: 'Archivo';
+    font-weight: 700;
+}
+.plyr--audio .plyr__control:hover {
+    background-color: var(--wp--preset--color--primary) !important;
+}
+
+/* Style Block and Template Elements */
