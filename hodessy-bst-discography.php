@@ -2,7 +2,7 @@
 /*
 Plugin Name: BST Discography
 Description: Adds an extensive music management system to your website.
-Version: 1.0_beta
+Version: 1.0
 Author: Stephen Osunwale
 Author URI: https://www.hodessy.com
 Text Domain: hodessy-discography
