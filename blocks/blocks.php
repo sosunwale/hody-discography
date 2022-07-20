@@ -223,7 +223,7 @@ function hody_discog_add_track__single_blocks() {
             );
 
             add_block(
-                'hody-discog-track--artist', 
+                'hody-discog-track-artist-name', 
                     array( 
                         'title'    => 'Track Artist', 
                         'category' => 'discography', 
@@ -242,11 +242,16 @@ function hody_discog_add_track__single_blocks() {
                                 ),
         
                             'hody-discog-track--artist-name-fontcase' => array( 
-                                'label'   => 'Font Transform',
-                                'location' => 'editor', 
-                                'control' => 'text',
-                                'type'      => 'string',
-                                'order'     => 2, 
+                                'label'   => 'Text Transform',
+                                'location' => 'inspector', 
+                                'control' => 'select',
+                                'options' => [
+                                    ['value' => 'capitalize','label' =>'Capitalize'],
+                                    ['value' => 'lowercase','label' =>'Lowercase'],
+                                    ['value' => 'uppercase','label' =>'Uppercase'],
+                                ],
+                                'type'     => 'string',
+                                'order'     => 4, 
                                 'width'   => '100', 
                                 ),
                             ),
