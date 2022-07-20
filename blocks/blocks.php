@@ -16,7 +16,11 @@ function hody_discog_add_global_track_list_block() {
         'hody-discog-list-tracks', 
         array( 
             'title'    => 'Tracks List', 
-            'category' => 'theme', 
+            'category' => array (
+                'icon'  => null,
+                'slug'  =>  'discography',
+                'title' =>  'Discography',
+            ), 
             'icon'     => 'audiotrack', 
             'keywords' => array( 'music', 'tracks list', 'track' ),
             'displayModal'  => true, 
@@ -66,7 +70,7 @@ function hody_discog_add_album_tracklist_relationship_block() {
         'hody-discog-album-tracklist', 
         array( 
             'title'    => 'Album Tracklist', 
-            'category' => 'theme', 
+            'category' => 'discography', 
             'icon'     => 'audiotrack', 
             'keywords' => array( 'music', 'tracklist', 'related' ),
             'displayModal'  => true, 
@@ -117,7 +121,7 @@ function hody_discog_add_track__related_tracks() {
         'hody-discog-track-related-tracks', 
         array( 
             'title'    => 'Related Tracks', 
-            'category' => 'theme', 
+            'category' => 'discography', 
             'icon'     => 'audiotrack', 
             'keywords' => array( 'music', 'tracklist', 'related' ),
             'displayModal'  => true, 
@@ -158,4 +162,96 @@ function hody_discog_add_track__related_tracks() {
     ); 
 }
 
+/* Register Track Streaming Icons
+*/
+
+add_action( 'genesis_custom_blocks_add_blocks', 'hody_discog_add_track__single_blocks' );
+function hody_discog_add_track__single_blocks() {
+
+    add_block(
+        'hody-discog-track-streaming-icons', 
+        array( 
+            'title'    => 'Track Streams', 
+            'category' => 'discography', 
+            'icon'     => 'radio_button_checked', 
+            'keywords' => array( 'music', 'tracklist', 'related' ),
+            'displayModal'  => false, 
+            'fields'   => array( 
+                'hody-discog-track--stream-icons-color' => array( 
+                    'label'   => 'Icon Color',
+                    'location' => 'inspector', 
+                    'control' => 'color',
+                    'default'    => '#ffffff',
+                    'type'      => 'string',
+                    'order'     => 2, 
+                    'width'   => '100', 
+                ),
+            ),
+
+        )
+            );
+
+    add_block(
+        'hody-discog-track-related-album-title', 
+            array( 
+                'title'    => 'Related Album Title', 
+                'category' => 'discography', 
+                'icon'     => 'title', 
+                'keywords' => array( 'album', 'title', 'heading' ),
+                'displayModal'  => true, 
+                'fields'   => array( 
+                    'hody-discog-track--album-title-prefix' => array( 
+                        'label'   => 'Prefix',
+                        'location' => 'editor', 
+                        'control' => 'text',
+                        'type'      => 'string',
+                        'order'     => 2, 
+                        'width'   => '50', 
+                        ),
+
+                    'hody-discog-track--album-title-suffix' => array( 
+                        'label'   => 'Suffix',
+                        'location' => 'editor', 
+                        'control' => 'text',
+                        'type'      => 'string',
+                        'order'     => 2, 
+                        'width'   => '50', 
+                        ),
+                    ),
+        
+                )
+            );
+
+            add_block(
+                'hody-discog-track--artist', 
+                    array( 
+                        'title'    => 'Track Artist', 
+                        'category' => 'discography', 
+                        'icon'     => 'account_circle', 
+                        'keywords' => array( 'artist', 'title', 'heading' ),
+                        'displayModal'  => true, 
+                        'fields'   => array( 
+                            'hody-discog-track--artist-name-color' => array( 
+                                'label'   => 'Color',
+                                'location' => 'inspector', 
+                                'control' => 'color',
+                                'default'    => '#ffffff',
+                                'type'      => 'string',
+                                'order'     => 2, 
+                                'width'   => '100', 
+                                ),
+        
+                            'hody-discog-track--artist-name-fontcase' => array( 
+                                'label'   => 'Font Transform',
+                                'location' => 'editor', 
+                                'control' => 'text',
+                                'type'      => 'string',
+                                'order'     => 2, 
+                                'width'   => '100', 
+                                ),
+                            ),
+                
+                        )
+                    );
+        }
 ?> 

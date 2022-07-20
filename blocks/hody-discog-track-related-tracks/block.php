@@ -34,7 +34,7 @@ if ($the_query->have_posts()) { ?>
      
     
     <style>
-            .track-streaming-services a{
+            .related-track-stream-icon-color  a{
             color: <?php block_field( 'hody-discog-track--related-tracks--stream-icon-color' ); ?>
         }
         </style>
@@ -58,7 +58,7 @@ if ($the_query->have_posts()) { ?>
                         <?php } ?>
             </div>
             <?php if ( block_value( 'hody-discog-track--related-tracks--show-hide-list-tracks-stream-icons' ) ) { ?>
-            <div class="track-streaming-services">
+            <div class="track-streaming-services related-track-stream-icon-color ">
                         <?php if ( !empty ( rwmb_get_value( 'hody_discog_track_spotify_url'))) {  ?>
                         <span class="icon-grid-item">
 	 				        <a  href="<?php rwmb_the_value( 'hody_discog_track_spotify_url' ); ?>" class="discog-icon discog-social-icon discog-social-icon-spotify" target="_blank">
