@@ -258,5 +258,16 @@ function hody_discog_add_track__single_blocks() {
                 
                         )
                     );
+             add_block(
+                'hody-discog-track-single-audio-block', 
+                    array( 
+                        'title'    => 'Single Track', 
+                        'category' => 'discography', 
+                        'icon'     => 'audiotrack', 
+                        'keywords' => array( 'track', 'single', 'audio' ),
+                        'displayModal'  => false, 
+                        'fields'   => array(),
+                    )
+                );       
         }
 ?> 
