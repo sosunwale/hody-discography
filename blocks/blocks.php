@@ -107,4 +107,55 @@ function hody_discog_add_album_tracklist_relationship_block() {
     ); 
 }
 
+/* Register Related Tracks track list block
+*/
+
+add_action( 'genesis_custom_blocks_add_blocks', 'hody_discog_add_track__related_tracks' );
+function hody_discog_add_track__related_tracks() {
+
+    add_block(
+        'hody-discog-track-related-tracks', 
+        array( 
+            'title'    => 'Related Tracks', 
+            'category' => 'theme', 
+            'icon'     => 'audiotrack', 
+            'keywords' => array( 'music', 'tracklist', 'related' ),
+            'displayModal'  => true, 
+            'fields'   => array( 
+                'hody-discog-track--related-tracks--show-hide-list-tracks-stream-icons' => array( 
+                    'label'   => 'Show/Hide Streaming icons',
+                    'location' => 'inspector', 
+                    'control' => 'toggle',
+                    'type'    => 'boolean', 
+                    'width'   => '100', 
+                ),
+                'hody-discog-track--related-tracks--stream-icon-color' => array( 
+                    'label'   => 'Icon Color',
+                    'location' => 'editor', 
+                    'control' => 'color',
+                    'default'    => '#ffffff',
+                    'type'      => 'string',
+                    'order'     => 2, 
+                    'width'   => '100', 
+                ),
+                'hody-discog-track--related-tracks--inherit-query' => array( 
+                    'label'   => 'Inherit query from template',
+                    'location' => 'inspector', 
+                    'control' => 'toggle',
+                    'type'    => 'boolean', 
+                    'width'   => '100', 
+                ),
+                'hody-discog-track--related-tracks--track-id' => array( 
+                    'label'   => 'Track Id',
+                    'location' => 'inspector', 
+                    'control' => 'text',
+                    'type'      => 'string',
+                    'order'     => 2, 
+                    'width'   => '100', 
+                ),
+            ), 
+        ) 
+    ); 
+}
+
 ?> 

@@ -109,7 +109,7 @@ if ($the_query->have_posts()) { ?>
     }
     echo '</ol>';
     
-    ?> <script type="text/javascript">const players = Plyr.setup('.audio-player--icon-and-playtime');</script>
+    ?> <script type="text/javascript">const players = Plyr.setup('audio');</script>
     <?php
 
 } else {
