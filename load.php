@@ -5,18 +5,17 @@ defined( 'ABSPATH' ) || die;
 // Load Metabox plugins and Prerequisites
 
 include_once  __DIR__ . '/vendor/meta-box/meta-box/meta-box.php';
-include_once  __DIR__ . '/vendor/meta-box/meta-box-group/meta-box-group.php';
-include_once  __DIR__ . '/vendor/meta-box/mb-custom-table/mb-custom-table.php';
+//include_once  __DIR__ . '/vendor/meta-box/meta-box-group/meta-box-group.php';
+//include_once  __DIR__ . '/vendor/meta-box/mb-custom-table/mb-custom-table.php';
 include_once  __DIR__ . '/vendor/meta-box/mb-relationships/mb-relationships.php';
 include_once  __DIR__ . '/vendor/meta-box/meta-box-conditional-logic/meta-box-conditional-logic.php';
 include_once  __DIR__ . '/vendor/meta-box/meta-box-columns/meta-box-columns.php';
-include_once  __DIR__ . '/vendor/meta-box/mb-blocks/mb-blocks.php';
-//include_once  __DIR__ . '/vendor/crocoblock/jet-style-manager/jet-style-manager.php';
+//include_once  __DIR__ . '/vendor/meta-box/mb-blocks/mb-blocks.php';
 include_once  __DIR__ . '/vendor/crocoblock/jet-engine/jet-engine.php';
-include_once  __DIR__ . '/vendor/studiopress/genesis-custom-blocks/genesis-custom-blocks.php';
 
 //Load custom plugins from wp dirctory
 include_once  __DIR__ . '/vendor/wp/display-a-meta-field-as-block/meta-field-block.php';
+include_once  __DIR__ . '/vendor/studiopress/genesis-custom-blocks/genesis-custom-blocks.php';
 
 // Load Post type and Taxes
 

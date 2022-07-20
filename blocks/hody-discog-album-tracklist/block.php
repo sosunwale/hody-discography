@@ -1,20 +1,31 @@
 <?php
 //Variables
-$number_of_posts = block_value( 'hody-discog-number-of-tracks' );
-$category = block_value( 'category' );
-$final_query_global = array( 
-    'post_type' => 'track',
-    'posts_per_page' => $number_of_posts,
-    'category_name' => $category->name,
-    );
+$tracklist_album_id = block_value( 'hody-discog-album-tracklist--album-id' );
+if ( block_value( 'hody-discog-album-tracklist--inherit-query' ) ) {
+    $related_to_album_id = get_the_ID();
+} else {
+    $related_to_album_id = $tracklist_album_id;
+}
+
 $track_item_style = 'class="track-item';
-if ( block_value( 'hody-discog-show-hide-list-tracks-stream-icons' ) ) {
+if ( block_value( 'hody-discog-album-tracklist--show-hide-list-tracks-stream-icons' ) ) {
     $track_item_style .= '"';
 } else {
     $track_item_style .= '" style="grid-template-columns: 1fr 0.35fr;"';
 }
+
 // The Query
-$the_query = new WP_Query($final_query_global);
+$the_query = new WP_Query([
+    'relationship' => [
+        'id'   => 'tracks-to-album',
+        'to' => $related_to_album_id, // You can pass object ID or full object
+    ],
+    'nopaging'     => true,
+],
+array(
+    'post_type' => 'track'
+)
+);
 
 // The Loop
 if ($the_query->have_posts()) { ?>
@@ -23,7 +34,7 @@ if ($the_query->have_posts()) { ?>
     
     <style>
             .track-streaming-services a{
-            color: <?php block_field( 'hody-discog-track-stream-icon-color' ); ?>
+            color: <?php block_field( 'hody-discog-album-tracklist--stream-icon-color' ); ?>
         }
         </style>
     <?php
@@ -45,7 +56,7 @@ if ($the_query->have_posts()) { ?>
                         <audio playsinline class="<?php block_field('className'); ?> audio-player--icon-and-playtime"  src="<?php rwmb_the_value( 'hody_discog_track_sample_audio' ); ?>" data-plyr-config='{ "title": "sample", "autopause": true, }'></audio>
                         <?php } ?>
             </div>
-            <?php if ( block_value( 'hody-discog-show-hide-list-tracks-stream-icons' ) ) { ?>
+            <?php if ( block_value( 'hody-discog-album-tracklist--show-hide-list-tracks-stream-icons' ) ) { ?>
             <div class="track-streaming-services">
                         <?php if ( !empty ( rwmb_get_value( 'hody_discog_track_spotify_url'))) {  ?>
                         <span class="icon-grid-item">
@@ -103,7 +114,7 @@ if ($the_query->have_posts()) { ?>
 
 } else {
     // no posts found
-    ?> <p>Non Found </p> <span><?php block_field( 'is-this-post-template') ?> </span> <?php
+    ?> <p>Non Found </p><?php
 }
 /* Restore original Post Data */
 wp_reset_postdata();
