@@ -342,5 +342,114 @@ function hody_discog_add_album__fields_blocks() {
             ), 
         ) 
     );
+
+    add_block(
+        'hody-discog-album-album-release-date', 
+        array( 
+            'title'    => 'Album Release Date', 
+            'category' => 'discography', 
+            'icon'     => 'album', 
+            'keywords' => array( 'album', 'label', 'description' ),
+            'displayModal'  => false, 
+            'fields'   => array( 
+                'hody-discog-album--release-date-text-color' => array( 
+                    'label'   => 'Color',
+                    'location' => 'inspector', 
+                    'control' => 'color',
+                    'default'    => '',
+                    'type'      => 'string',
+                    'order'     => 2, 
+                    'width'   => '100', 
+                ),
+
+                'hody-discog-album--release-dateFormat' => array( 
+                    'label'   => 'Date Format',
+                    'location' => 'inspector', 
+                    'control' => 'select',
+                    'options' => [
+                        ['value' => 'F j, Y','label' =>'MM d, Y'],
+                        ['value' => 'F , Y','label' =>'MM, Y'],
+                        ['value' => 'Y','label' =>'Y'],
+                    ],
+                    'type'      => 'string',
+                    'order'     => 2, 
+                    'width'   => '100', 
+                ),
+            ), 
+        ) 
+    );
+
+    add_block(
+        'hody-discog-album-related-albums', 
+        array( 
+            'title'    => 'Related Albums Grid', 
+            'category' => 'discography', 
+            'icon'     => 'discalbum', 
+            'keywords' => array( 'music', 'albums', 'related' ),
+            'displayModal'  => true, 
+            'fields'   => array( 
+                'hody-discog-number-of-related-albumsToShow' => array( 
+                    'label'   => 'Albums to show',
+                    'location' => 'inspector', 
+                    'control' => 'range',
+                    'type'    => 'integer', 
+                    'width'   => '100', 
+                ),
+
+                'hody-discog-album--display-listen-now-text' => array( 
+                    'label'   => 'Show/Hide Link Text',
+                    'location' => 'inspector', 
+                    'control' => 'toggle',
+                    'type'    => 'boolean', 
+                    'width'   => '100', 
+                ),
+
+                'hody-discog-album--listen-now-text-value' => array( 
+                    'label'   => 'Link Text',
+                    'location' => 'inspector', 
+                    'control' => 'text',
+                    'default'    => 'Listen Now',
+                    'type'    => 'string', 
+                    'width'   => '100', 
+                ),
+
+                'hody-discog-track--albumCountColumn' => array( 
+                    'label'   => 'Columns',
+                    'location' => 'inspector', 
+                    'control' => 'range',
+                    'type'     => 'integer',
+                    'min' => 1,
+                    'max' => 6,
+                    'default'    => '3',
+                    'order'     => 4, 
+                    'width'   => '100', 
+                ),
+
+                'hody-discog-track--albumTitle-fontcase' => array( 
+                    'label'   => 'Title Text Transform',
+                    'location' => 'inspector', 
+                    'control' => 'select',
+                    'options' => [
+                        ['value' => 'capitalize','label' =>'Capitalize'],
+                        ['value' => 'lowercase','label' =>'Lowercase'],
+                        ['value' => 'uppercase','label' =>'Uppercase'],
+                    ],
+                    'type'     => 'string',
+                    'order'     => 4, 
+                    'width'   => '100', 
+                ),
+
+                'hody-discog-track--related-albumTitle-color' => array( 
+                    'label'   => 'Title Color',
+                    'location' => 'inspector', 
+                    'control' => 'color',
+                    'default'    => '',
+                    'type'      => 'string',
+                    'order'     => 5, 
+                    'width'   => '100', 
+                ),
+            ), 
+        ) 
+    );
 }        
 ?> 

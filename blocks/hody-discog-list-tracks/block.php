@@ -103,7 +103,7 @@ if ($the_query->have_posts()) { ?>
 
 } else {
     // no posts found
-    ?> <p>Non Found </p> <span><?php block_field( 'is-this-post-template') ?> </span> <?php
+    ?> <p>Non Found </p><?php
 }
 /* Restore original Post Data */
 wp_reset_postdata();
