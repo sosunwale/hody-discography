@@ -235,7 +235,7 @@ function hody_discog_add_track__single_blocks() {
                                 'label'   => 'Color',
                                 'location' => 'inspector', 
                                 'control' => 'color',
-                                'default'    => '#ffffff',
+                                'default'    => '',
                                 'type'      => 'string',
                                 'order'     => 2, 
                                 'width'   => '100', 
@@ -270,4 +270,77 @@ function hody_discog_add_track__single_blocks() {
                     )
                 );       
         }
+
+/* Register Album Fields Blocks
+*/
+
+add_action( 'genesis_custom_blocks_add_blocks', 'hody_discog_add_album__fields_blocks' );
+function hody_discog_add_album__fields_blocks() {
+
+    add_block(
+        'hody-discog-album-streaming-icons', 
+        array( 
+            'title'    => 'Album Streams', 
+            'category' => 'discography', 
+            'icon'     => 'audioalbum', 
+            'keywords' => array( 'album', 'stream', 'social' ),
+            'displayModal'  => false, 
+            'fields'   => array( 
+                'hody-discog-album--stream-icons-color' => array( 
+                    'label'   => 'Icon Color',
+                    'location' => 'inspector', 
+                    'control' => 'color',
+                    'default'    => '',
+                    'type'      => 'string',
+                    'order'     => 2, 
+                    'width'   => '100', 
+                ),
+            ), 
+        ) 
+    );
+    
+    add_block(
+        'hody-discog-album-album-description', 
+        array( 
+            'title'    => 'Album Short Description', 
+            'category' => 'discography', 
+            'icon'     => 'notes', 
+            'keywords' => array( 'album', 'stream', 'description' ),
+            'displayModal'  => false, 
+            'fields'   => array( 
+                'hody-discog-album--description-text-color' => array( 
+                    'label'   => 'Color',
+                    'location' => 'inspector', 
+                    'control' => 'color',
+                    'default'    => '',
+                    'type'      => 'string',
+                    'order'     => 2, 
+                    'width'   => '100', 
+                ),
+            ), 
+        ) 
+    );
+
+    add_block(
+        'hody-discog-album-album-producer-label', 
+        array( 
+            'title'    => 'Album Label/Producer', 
+            'category' => 'discography', 
+            'icon'     => 'album', 
+            'keywords' => array( 'album', 'label', 'description' ),
+            'displayModal'  => false, 
+            'fields'   => array( 
+                'hody-discog-album--producer-text-color' => array( 
+                    'label'   => 'Color',
+                    'location' => 'inspector', 
+                    'control' => 'color',
+                    'default'    => '',
+                    'type'      => 'string',
+                    'order'     => 2, 
+                    'width'   => '100', 
+                ),
+            ), 
+        ) 
+    );
+}        
 ?> 
