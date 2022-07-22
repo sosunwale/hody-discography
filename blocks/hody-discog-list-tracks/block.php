@@ -18,7 +18,7 @@ $the_query = new WP_Query($final_query_global);
 
 // The Loop
 if ($the_query->have_posts()) { ?>
-    <ol class="tracklist-mordern-wrapper <?php block_field('className'); ?>">
+    <ol class="tracklist-mordern-wrapper tracklist-anywhere <?php block_field('className'); ?>">
      
     
     <style>

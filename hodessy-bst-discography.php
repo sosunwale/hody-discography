@@ -65,3 +65,13 @@ function discography_page() {
 
     <?php
 }
+?> 
+<?php
+/* Load gutenberg page templates from plugin 
+
+public static function generate_template_slug_from_path( $path ) {
+    $template_extension = '.html';
+
+    return basename( $path, $template_extension );
+}
+*/

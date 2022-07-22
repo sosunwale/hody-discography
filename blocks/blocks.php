@@ -451,5 +451,5 @@ function hody_discog_add_album__fields_blocks() {
             ), 
         ) 
     );
-}        
+}
 ?> 
