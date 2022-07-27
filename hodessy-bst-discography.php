@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: BST Discography
+Plugin Name: Hody Discography
 Description: Adds an extensive music management system to your website.
 Version: 1.0
 Author: Stephen Osunwale
 Author URI: https://www.hodessy.com
-Text Domain: hodessy-discography
+Text Domain: hody-discography
 */
 // Include load.php file -- this calls all post type file and code assets
 include_once  __DIR__ . '/load.php';
