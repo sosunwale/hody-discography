@@ -1,5 +1,5 @@
 <?php
-add_action( 'init', 'hody_discog_video_register_post_type' );
+// add_action( 'init', 'hody_discog_video_register_post_type' );
 function hody_discog_video_register_post_type() {
 	$labels = [
 		'name'                     => esc_html__( 'Videos', 'hodessy-discography' ),

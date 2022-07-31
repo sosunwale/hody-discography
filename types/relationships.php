@@ -1,7 +1,7 @@
 <?php
 // Track to Album relationship -reciprocal
 
-add_action( 'mb_relationships_init', 'hody_track_to_album_relationship' );
+ add_action( 'mb_relationships_init', 'hody_track_to_album_relationship' );
 
 function hody_track_to_album_relationship() {
     MB_Relationships_API::register( [

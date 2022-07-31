@@ -1,14 +1,69 @@
 <?php
+/**
+ * @package HodyDiscography
+ */
 /*
 Plugin Name: Hody Discography
+Plugin URI: https://www.hodessy.com/plugins/hody-discography
 Description: Adds an extensive music management system to your website.
-Version: 1.0
+Version: 1.0.1
 Author: Stephen Osunwale
 Author URI: https://www.hodessy.com
 Text Domain: hody-discography
+License: GPLv2 or later
 */
+// Check that the file is not accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	die( 'We\'re sorry, but you can not directly access this file.' );
+}
+
 // Include load.php file -- this calls all post type file and code assets
 include_once  __DIR__ . '/load.php';
+
+class HodyDiscography {
+
+    function __construct() {
+        add_action( 'init', 'hody_album_register_post_type' );
+        add_action( 'init', 'hody_discog_register_post_type' );
+        add_action( 'init', 'hody_discog_video_register_post_type' );
+    }
+    function register() {
+
+    }
+
+    function activate() {
+        //init cpt
+
+        //flush rewrite
+        flush_rewrite_rules();
+
+    }
+
+    function deactivate() {
+        flush_rewrite_rules();
+    }
+
+    function enqueue() {
+        wp_enqueue_style( 'hody-discog-playr_custom_style', plugins_url('inc/css/plyr-custom-style.css', __FILE__ ));
+        wp_enqueue_style( 'hody-discog-block_styles', plugins_url('inc/css/block-styles.css', __FILE__ ));
+        //wp_enqueue_script( 'hody-discog-block_script', plugins_url('inc/css/block-script.js', __FILE__ ));
+    }
+
+}
+// Initialize our plugin.
+if (class_exists('HodyDiscography')) {
+$hodyDiscography = new HodyDiscography();
+$hodyDiscography->register();
+}
+//Activation
+register_activation_hook(__FILE__, array($hodyDiscography, 'activate'));
+
+//Deactivation
+register_deactivation_hook(__FILE__, array($hodyDiscography, 'deactivate'));
+
+
+
+
 
 //Include style
 add_action( 'admin_enqueue_scripts', 'hody_discog_selectively_enqueue_admin_script' );
@@ -18,7 +73,7 @@ function hody_discog_selectively_enqueue_admin_script( $hook ) {
 }
 
 
-// Include frontend styles
+/* Include frontend styles
 add_action( 'wp_enqueue_scripts', 'hody_discog_enqueuing_scripts_styles' );
 function hody_discog_enqueuing_scripts_styles(){
     if(shortcode_exists('album-tracklist-modern')) {
@@ -28,7 +83,7 @@ function hody_discog_enqueuing_scripts_styles(){
 	};
     wp_enqueue_style( 'hody-discog-playr_custom_style', plugins_url('inc/css/plyr-custom-style.css',__FILE__ ));
 }
-
+*/
 
 
 //Add discography top menu

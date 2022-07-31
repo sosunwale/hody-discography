@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) || die;
 
 //Create Track Post type
-add_action( 'init', 'hody_discog_register_post_type' );
+// add_action( 'init', 'hody_discog_register_post_type' );
 function hody_discog_register_post_type() {
 	$labels = [
 		'name'                     => esc_html__( 'Tracks', 'hodessy-discography' ),
