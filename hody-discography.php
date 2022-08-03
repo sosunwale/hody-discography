@@ -18,50 +18,48 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Include load.php file -- this calls all post type file and code assets
-include_once  __DIR__ . '/load.php';
+if ( ! class_exists( 'HodyDiscography' ) ) :
 
-class HodyDiscography {
+    
+    class HodyDiscography {
 
-    function __construct() {
+        private static $instance;
+
+		/**
+		 * Initiator
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
+		}
+
+		/**
+		 * Constructor
+		 */
+		public function __construct() {
+
         add_action( 'init', 'hody_album_register_post_type' );
         add_action( 'init', 'hody_discog_register_post_type' );
         add_action( 'init', 'hody_discog_video_register_post_type' );
+
+        
+
+		// Let's Initialize Everything
+            if ( file_exists( plugin_dir_path( __FILE__ ) . 'load.php' ) ) {
+            require_once( plugin_dir_path( __FILE__ ) . 'load.php' );
+    };
+        }
+
+
     }
-    function register() {
+/**
+	 * Kicking this off by calling 'get_instance()' method
+	 */
+	HodyDiscography::get_instance();
 
-    }
-
-    function activate() {
-        //init cpt
-
-        //flush rewrite
-        flush_rewrite_rules();
-
-    }
-
-    function deactivate() {
-        flush_rewrite_rules();
-    }
-
-    function enqueue() {
-        wp_enqueue_style( 'hody-discog-playr_custom_style', plugins_url('inc/css/plyr-custom-style.css', __FILE__ ));
-        wp_enqueue_style( 'hody-discog-block_styles', plugins_url('inc/css/block-styles.css', __FILE__ ));
-        //wp_enqueue_script( 'hody-discog-block_script', plugins_url('inc/css/block-script.js', __FILE__ ));
-    }
-
-}
-// Initialize our plugin.
-if (class_exists('HodyDiscography')) {
-$hodyDiscography = new HodyDiscography();
-$hodyDiscography->register();
-}
-//Activation
-register_activation_hook(__FILE__, array($hodyDiscography, 'activate'));
-
-//Deactivation
-register_deactivation_hook(__FILE__, array($hodyDiscography, 'deactivate'));
-
-
+endif;
 
 
 
@@ -71,9 +69,14 @@ function hody_discog_selectively_enqueue_admin_script( $hook ) {
     //wp_enqueue_script( 'hody_event_admin_js', plugin_dir_url( __FILE__ ) . 'inc/admin.js', array(), '1.0' );
 	wp_enqueue_style('hody_discog_admin_css', plugins_url('inc/admin.css',__FILE__ ));
 }
-
-
-/* Include frontend styles
+/*
+function enqueue() {
+    wp_enqueue_style( 'hody-discog-playr_custom_style', plugins_url('inc/css/plyr-custom-style.css', __FILE__ ));
+    wp_enqueue_style( 'hody-discog-block_styles', plugins_url('inc/css/block-styles.css', __FILE__ ));
+    //wp_enqueue_script( 'hody-discog-block_script', plugins_url('inc/css/block-script.js', __FILE__ ));
+}
+*/
+// Include frontend styles
 add_action( 'wp_enqueue_scripts', 'hody_discog_enqueuing_scripts_styles' );
 function hody_discog_enqueuing_scripts_styles(){
     if(shortcode_exists('album-tracklist-modern')) {
@@ -83,7 +86,7 @@ function hody_discog_enqueuing_scripts_styles(){
 	};
     wp_enqueue_style( 'hody-discog-playr_custom_style', plugins_url('inc/css/plyr-custom-style.css',__FILE__ ));
 }
-*/
+
 
 
 //Add discography top menu
