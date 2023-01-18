@@ -1,6 +1,6 @@
 {
   "name": "tracks-block",
-  "version": "2.0.2",
+  "version": "2.2.2",
   "description": "Block listing tracks",
   "main": "build/index.js",
   "scripts": {
